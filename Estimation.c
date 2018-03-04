@@ -1,5 +1,5 @@
 // Function counting arithmetic mean and weighted arithmetic mean.
-// funkcja strtok(str654)
+
 
 
 #include <stdio.h>
@@ -37,20 +37,23 @@ void Estimate (float scores[],uint8_t *amount)
 
     while(number!=4)
     {
+        do
+        {
+            printf("\nChoose what kind of estimation u want to make:\n");
+            printf("\n'1' for weighted arithmetic mean");
+            printf("\n'2' for arithmetic mean");
+            printf("\n'3' for harmonic mean");
+            printf("\n'4' for exit\n");
 
-        printf("\nChoose what kind of estimation u want to make:\n");
-        printf("\n'1' for weighted arithmetic mean");
-        printf("\n'2' for arithmetic mean");
-        printf("\n'3' for harmonic mean");
-        printf("\n'4' for exit\n");
+            scanf("%hhu",&number);
+            getc(stdin);
 
-        scanf("%hhu",&number);
-        fseek(stdin,0,SEEK_END);
+            fseek(stdin,0,SEEK_END);
 
-        if(number > 4 || number < 0)
-            printf ("try again");
+        }while(number!= 1 && number!=2 && number!=3 && number!=4);
 
-        else if(number == 1 || number == 2 || number == 3)
+
+        if(number == 1 || number == 2 || number == 3)
         {
             switch(number)
             {
