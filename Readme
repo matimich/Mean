@@ -1,1 +1,33 @@
-xD
+Author:Mateusz Michalski
+Platform:Linux/Windows
+
+
+The programme is able to count three different types of means:
+-arithmetic mean
+-weighted arithmetic mean 
+-harmonic mean
+
+It consists of five files:
+main.c
+Estimation.c
+Estimation.h
+first
+second
+
+To start the program, open "makefile" in console and then start the program.
+
+
+Then you have to input datas to text files:
+"first"
+"second"
+
+
+File named "first" is prepared for arthmetic mean and harmonic mean.All numbers yow are willing to enter have to be inputed in one column one above the other.You can't input more than 100 different numbers.
+
+File named "second" is prepared for weighted arthmetic mean.In each row u have to input the value and and the quantity.The numbers in each row must be seprated by '|' sign. You can't create more than 100 rows.
+
+If you want to input non integer numbers, than insted of coma ',' use dot '.'.
+
+
+Instead of inputting numbers directly to files "first" and "second", you can also do it in program's menu.
+
