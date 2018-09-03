@@ -14,7 +14,9 @@ Estimation.h
 first
 second
 
-To display programme all you have to do is to create new project and input there all five filles.
+To start the program, open "makefile" in console and then start the program.
+
+
 Then you have to input datas to text files:
 "first"
 "second"
@@ -26,4 +28,6 @@ File named "second" is prepared for weighted arthmetic mean.In each row u have t
 
 If you want to input non integer numbers, than insted of coma ',' use dot '.'.
 
+
+Instead of inputting numbers directly to files "first" and "second", you can also do it in program's menu.
 
