@@ -1,9 +1,6 @@
 Author:Mateusz Michalski
 Platform:Linux/Windows
 
-<<<<<<< HEAD
-xD
-=======
 
 The programme is able to count three different types of means:
 -arithmetic mean
@@ -33,4 +30,3 @@ If you want to input non integer numbers, than insted of coma ',' use dot '.'.
 
 
 Instead of inputting numbers directly to files "first" and "second", you can also do it in program's menu.
->>>>>>> master
