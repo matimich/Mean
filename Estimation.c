@@ -1,7 +1,6 @@
 // Function counting arithmetic mean and weighted arithmetic mean.
 
 
-
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -13,11 +12,10 @@
 
 
 
-char* ftoa(double number)       //function which changes double into string
+void ftoa(double number,char string[])       //function which changes double into string
 {
 
-    char* first;
-    char string[50];
+    //char string[50];
     char string_2[50];
     double  number_2,change;
     int  fractional,decimal;
@@ -39,10 +37,11 @@ char* ftoa(double number)       //function which changes double into string
 
     strcat(string,".");                     //adding dot between numbers
     strcat(string,string_2);
-  //  strcat(string," ");
-    first = string;
 
-    return first;                           //returning final string
+//    first = string;//taking ready string
+
+
+    printf ("___%s___",string);
 }
 
 
@@ -58,7 +57,7 @@ void FileEdition_1(void)
         sign = 'A';
         decission = 0;
         double input;
-        char *string;
+
         printf("\nInput '1' to add new data to previous"); //sprawdzenie czy dziala
         printf("\nInput '2' to add completely new data"); //sprawdzenie czy dziala
         printf("\nInput '3' to display data"); //sprawdzenie czy dziala
@@ -82,46 +81,87 @@ void FileEdition_1(void)
 
                 do
                 {
-                  //  printf("\nPOCZATEK:%c",sign);
                     fseek(file,0,SEEK_END);
                     printf("\nInput number, remember about '0.0' format:");
                     scanf("\n%lf",&input);
                     getc(stdin);
                     fseek(stdin,0,SEEK_END);
-
-                  //  printf("\nSRODEK:%c",sign);
-
+                   /*
                     string = ftoa(input);
-                    //printf("STRING:%s",string);
+                    for(int i=0; *string !='\0';i++)
+                    {
+                        fprintf(file,"%c",*string);
+                        string++;
+                        if(*string =='\0')
+                        {
+                            fprintf(file,"%c",'\n');
+                        }
+                    }
+                    */
+                    fprintf(file,"%f",input);
+                    fprintf(file,"%c",'\n');
+                    printf("\nDo you want to add another one? Press 'q' or 'Q' to exit");
+                    printf("\nor type any other sign to continue:");
+                    scanf("\n%c",&sign);
+                    fseek(stdin,0,SEEK_END);
+                }
+                while(sign != 'q' && sign !='Q');
+                fclose(file);
+            }
+            break;
 
-                    fprintf(file,"%s",string);
-                    fclose(file);
-                //fflush        ~~!!!!!!!!!!!!!!!!!!!!!!!!!
+            case 2:
+            {
+                FILE *file;
+                if((file=fopen("first.txt","w"))==NULL)
+                {
+                    printf("Error, file not found");
+                    exit(EXIT_FAILURE);
+                }
+                do
+                {
+                    fseek(file,0,SEEK_END);
+                    printf("\nInput number, remember about '0.0' format:");
+                    scanf("\n%lf",&input);
+                    getc(stdin);
+                    fseek(stdin,0,SEEK_END);
+                    fprintf(file,"%f",input);
+                    fprintf(file,"%c",'\n');
 
                     printf("\nDo you want to add another one? Press 'q' or 'Q' to exit");
                     printf("\nor type any other sign to continue:");
                     scanf("\n%c",&sign);
-                  //  printf("\nKONIEC:%c",sign);
                     fseek(stdin,0,SEEK_END);
+                }
+                while(sign != 'q' && sign !='Q');
+                fclose(file);
+            }
+            break;
+
+            case 3:
+            {
+                char data;
+
+                FILE *file;
+                if ((file = fopen(AM,"r")) ==NULL)
+                {
+                    printf("Error, file not found");
+                    exit(EXIT_FAILURE);
+                }
 
 
-                }while(sign != 'q' && sign !='Q');
 
+                fseek(file,0,SEEK_SET);
+                printf("\nCURRENT DATA:\n");
+
+
+               while (fscanf(file,"%c",&data) != EOF)
+                {
+                    printf("%c",data);
+                }
+                fclose(file);
 
             }
-
-
-
-
-
-
-
-
-
-            break;
-            case 2:
-            break;
-            case 3:
             break;
             case 4:
             return;
@@ -132,13 +172,117 @@ void FileEdition_1(void)
 }
 
 
-
 void FileEdition_2(void)
 {
-    printf("\nInput '1' to add new data to previous"); //sprawdzenie czy dziala
-    printf("\nInput '2' to add completely new data"); //sprawdzenie czy dziala
-    printf("\nInput '3' to display data"); //sprawdzenie czy dziala
-    getc(stdin);
+    int decission ;
+    char sign ;
+    do
+    {
+        sign = 'A';
+        decission = 0;
+        double input=1.45,input_2=3.3;
+        printf("\nInput '1' to add new data to previous"); //sprawdzenie czy dziala
+        printf("\nInput '2' to add completely new data"); //sprawdzenie czy dziala
+        printf("\nInput '3' to display data"); //sprawdzenie czy dziala
+        printf("\nInput '4' to go back:"); //sprawdzenie czy dziala
+        scanf("%i",&decission);
+        getc(stdin);
+        fseek(stdin,0,SEEK_END);
+
+
+        switch (decission)
+        {
+            case 1:
+            {
+
+                FILE *file;
+                if ((file = fopen(WMA,"r+"))==NULL)
+                {
+                    printf("File not found");
+                    exit(EXIT_FAILURE);
+                }
+
+                do
+                {
+                    fseek(file,0,SEEK_END);
+                    printf("\nInput number, remember about '0.0|0.0' format:");
+                    scanf("\n%lf|%lf",&input,&input_2);
+                    getc(stdin);
+                    fseek(stdin,0,SEEK_END);
+
+
+                    fprintf(file,"%f|%f",input,input_2);
+                    fprintf(file,"%c",'\n');
+                    printf("\nDo you want to add another one? Press 'q' or 'Q' to exit");
+                    printf("\nor type any other sign to continue:");
+                    scanf("\n%c",&sign);
+                    fseek(stdin,0,SEEK_END);
+                }
+                while(sign != 'q' && sign !='Q');
+                fclose(file);
+            }
+            break;
+
+            case 2:
+            {
+                FILE *file;
+                if((file=fopen(WMA,"w"))==NULL)
+                {
+                    printf("Error, file not found");
+                    exit(EXIT_FAILURE);
+                }
+                do
+                {
+                    fseek(file,0,SEEK_END);
+                    printf("\nInput number, remember about '0.0|0.0' format:");
+                    scanf("\n%lf",&input);
+                    getc(stdin);
+                    fseek(stdin,0,SEEK_END);
+
+                    fprintf(file,"%f|%f",input,input_2);
+                    fprintf(file,"%c",'\n');
+
+                    printf("\nDo you want to add another one? Press 'q' or 'Q' to exit");
+                    printf("\nor type any other sign to continue:");
+                    scanf("\n%c",&sign);
+                    fseek(stdin,0,SEEK_END);
+                }
+                while(sign != 'q' && sign !='Q');
+                fclose(file);
+            }
+            break;
+
+            case 3:
+            {
+                char data;
+
+                FILE *file;
+                if ((file = fopen(WMA,"r")) ==NULL)
+                {
+                    printf("Error, file not found");
+                    exit(EXIT_FAILURE);
+                }
+
+
+
+                fseek(file,0,SEEK_SET);
+                printf("\nCURRENT DATA:\n");
+
+
+               while (fscanf(file,"%c",&data) != EOF)
+                {
+                    printf("%c",data);
+                }
+                fclose(file);
+
+            }
+            break;
+            case 4:
+            return;
+        }
+    }
+    while(1);
+
 }
 
 void FileSettings(void(*FileEdition_1)(void),void(*FileEdition_2)(void))
@@ -235,7 +379,7 @@ void Estimate (float scores[],uint8_t *amount, void (*FileSettings)(void(*FileEd
                     }
 
                     k=0;
-
+                    fseek(file,0,SEEK_SET);
                     while (fgets(array,100,file)!=NULL)
                     {
 
@@ -278,6 +422,7 @@ void Estimate (float scores[],uint8_t *amount, void (*FileSettings)(void(*FileEd
                     }
 
                     k=0;
+                    fseek(file2,0,SEEK_SET);
                     while(fgets(array,100,file2)!=NULL)
                     {
                         wam.val[k]=atof(array);
@@ -321,7 +466,7 @@ void Estimate (float scores[],uint8_t *amount, void (*FileSettings)(void(*FileEd
                     }
                     outcome=i/outcome;
                     scores[*amount]=outcome;
-                    printf ("\nArithmetic mean equals :%f\n",scores[*amount]);
+                    printf ("\nHarmonic mean equals :%f\n",scores[*amount]);
                     *amount+=1;
                     outcome=0;
                     i=0;

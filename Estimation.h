@@ -8,6 +8,4 @@ void Estimate (float scores[],uint8_t *amount, void (*FileSettings)(void(*FileEd
 void FileSettings(void(*FileEdition)(void));
 void FileEdition_1(void);
 void FileEdition_2(void);
-char* ftoa(double number);
-
 #endif

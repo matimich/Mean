@@ -7,39 +7,23 @@
 
 
 
-//MOJ BLAD CZEMU ESTIMATE NIE DZIALA
-void Moja(int a);
-void My(void (*fun)(int));
-
-
-
-void Moja(int a)
-{
-
-}
-
-void My(void (*fun)(int))
-{
-
-    fun(5);
-}
 
 int main (void)
 {
-
-    My(Moja);
 
 
     float outcomes[100];     //space for outcomes
     uint8_t amount = 0;      // space for number of outcomes
     uint8_t i;
-    //Estimate(outcomes,&amount,FileSettings);
+    Estimate(outcomes,&amount,FileSettings);
 
-    double input = 1.1;
+
+
 
 
 //DZIALA!
-
+   /*
+    double input = 1.123;
         FILE *file;
         if ((file = fopen("first.txt","r+"))==NULL)
         {
@@ -49,12 +33,16 @@ int main (void)
 
         fseek(file,0,SEEK_END);
 
-        char *string = ftoa(0.6);
-        char *string_2 ="hahahahah";
+        char *string = ftoa(10.6);
+
+
+
 
         //  printf("\n'%s'",ftoa(51.5));
-        // fprintf(file,"%s",string);
+        //fprintf(file,"%f",input);     //musze zostawic
+
         // printf("\n'%s'",ftoa(51.5));
+
 
         for(int i=0; *string !='\0';i++)
         {
@@ -65,14 +53,9 @@ int main (void)
                 fprintf(file,"%c",'\n');
             }
         }
+        fclose(file);
+        */
 
-    fclose(file);
-
-
-
-   // string = ftoa(input);
-
-   // printf("%s",string);
 
     for(i=0;i<amount;i++)
     {
