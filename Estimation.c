@@ -12,68 +12,32 @@
 
 
 
-void ftoa(double number,char string[])       //function which changes double into string
+
+void FileEdition_1(void)    // file data edition for arthmetic mean and harmonic mean
 {
-
-    //char string[50];
-    char string_2[50];
-    double  number_2,change;
-    int  fractional,decimal;
-
-
-    decimal = (int) number;     //extracting decimal part form fractional
-
-    number_2 = (double) decimal;
-
-    change = number - number_2;
-
-    fractional = change*1000; //extracting fractional part and changing it into integer
-
-    // itoa(decimal,first,10);
-    // itoa(fractional,sec,10);
-
-    sprintf(string,"%d",decimal);           //changing both parts into string
-    sprintf(string_2,"%d",fractional);
-
-    strcat(string,".");                     //adding dot between numbers
-    strcat(string,string_2);
-
-//    first = string;//taking ready string
-
-
-    printf ("___%s___",string);
-}
-
-
-
-
-
-void FileEdition_1(void)
-{
-    int decission ;
-    char sign ;
+    int decision;
+    char leave;
     do
     {
-        sign = 'A';
-        decission = 0;
+        leave = 'A';
+        decision = 0;
         double input;
 
-        printf("\nInput '1' to add new data to previous"); //sprawdzenie czy dziala
-        printf("\nInput '2' to add completely new data"); //sprawdzenie czy dziala
-        printf("\nInput '3' to display data"); //sprawdzenie czy dziala
-        printf("\nInput '4' to go back:"); //sprawdzenie czy dziala
-        scanf("%i",&decission);
+        printf("\nInput '1' to add new data to previous");
+        printf("\nInput '2' to add completely new data");
+        printf("\nInput '3' to display data");
+        printf("\nInput '4' to go back:");
+        scanf("%i",&decision);     //choosing decision
         getc(stdin);
         fseek(stdin,0,SEEK_END);
 
-
-        switch (decission)
+        switch (decision)
         {
-            case 1:
+            case 1: //adding new data to previous
             {
 
                 FILE *file;
-                if ((file = fopen(AM,"r+"))==NULL)
+                if ((file = fopen(AM,"r+"))==NULL)  //file opening
                 {
                     printf("File not found");
                     exit(EXIT_FAILURE);
@@ -81,11 +45,12 @@ void FileEdition_1(void)
 
                 do
                 {
-                    fseek(file,0,SEEK_END);
+                    fseek(file,0,SEEK_END); //input data
                     printf("\nInput number, remember about '0.0' format:");
                     scanf("\n%lf",&input);
                     getc(stdin);
                     fseek(stdin,0,SEEK_END);
+
                    /*
                     string = ftoa(input);
                     for(int i=0; *string !='\0';i++)
@@ -98,22 +63,22 @@ void FileEdition_1(void)
                         }
                     }
                     */
-                    fprintf(file,"%f",input);
+                    fprintf(file,"%f",input);   //saving data into the file
                     fprintf(file,"%c",'\n');
                     printf("\nDo you want to add another one? Press 'q' or 'Q' to exit");
                     printf("\nor type any other sign to continue:");
-                    scanf("\n%c",&sign);
+                    scanf("\n%c",&leave);
                     fseek(stdin,0,SEEK_END);
                 }
-                while(sign != 'q' && sign !='Q');
+                while(leave != 'q' && leave !='Q');
                 fclose(file);
             }
             break;
 
-            case 2:
+            case 2: //adding completely new data into the file
             {
                 FILE *file;
-                if((file=fopen("first.txt","w"))==NULL)
+                if((file=fopen("first.txt","w"))==NULL) //file opening
                 {
                     printf("Error, file not found");
                     exit(EXIT_FAILURE);
@@ -122,28 +87,28 @@ void FileEdition_1(void)
                 {
                     fseek(file,0,SEEK_END);
                     printf("\nInput number, remember about '0.0' format:");
-                    scanf("\n%lf",&input);
+                    scanf("\n%lf",&input); //inputting data
                     getc(stdin);
                     fseek(stdin,0,SEEK_END);
-                    fprintf(file,"%f",input);
+                    fprintf(file,"%f",input);   //data saving
                     fprintf(file,"%c",'\n');
 
                     printf("\nDo you want to add another one? Press 'q' or 'Q' to exit");
                     printf("\nor type any other sign to continue:");
-                    scanf("\n%c",&sign);
+                    scanf("\n%c",&leave);
                     fseek(stdin,0,SEEK_END);
                 }
-                while(sign != 'q' && sign !='Q');
+                while(leave != 'q' && leave !='Q');
                 fclose(file);
             }
             break;
 
-            case 3:
+            case 3: //display data
             {
                 char data;
 
                 FILE *file;
-                if ((file = fopen(AM,"r")) ==NULL)
+                if ((file = fopen(AM,"r")) ==NULL)  //file opening
                 {
                     printf("Error, file not found");
                     exit(EXIT_FAILURE);
@@ -155,7 +120,7 @@ void FileEdition_1(void)
                 printf("\nCURRENT DATA:\n");
 
 
-               while (fscanf(file,"%c",&data) != EOF)
+               while (fscanf(file,"%c",&data) != EOF)   //displaying data
                 {
                     printf("%c",data);
                 }
@@ -172,25 +137,25 @@ void FileEdition_1(void)
 }
 
 
-void FileEdition_2(void)
-{
-    int decission ;
+void FileEdition_2(void)    // file data edition for arthmetic mean and harmonic mean weighted arthmetic mean
+{                          // the same working as "FileEdition_2"
+    int decision ;
     char sign ;
     do
     {
         sign = 'A';
-        decission = 0;
+        decision = 0;
         double input=1.45,input_2=3.3;
-        printf("\nInput '1' to add new data to previous"); //sprawdzenie czy dziala
-        printf("\nInput '2' to add completely new data"); //sprawdzenie czy dziala
-        printf("\nInput '3' to display data"); //sprawdzenie czy dziala
-        printf("\nInput '4' to go back:"); //sprawdzenie czy dziala
-        scanf("%i",&decission);
+        printf("\nInput '1' to add new data to previous");
+        printf("\nInput '2' to add completely new data");
+        printf("\nInput '3' to display data");
+        printf("\nInput '4' to go back:");
+        scanf("%i",&decision);
         getc(stdin);
         fseek(stdin,0,SEEK_END);
 
 
-        switch (decission)
+        switch (decision)
         {
             case 1:
             {
@@ -285,9 +250,8 @@ void FileEdition_2(void)
 
 }
 
-void FileSettings(void(*FileEdition_1)(void),void(*FileEdition_2)(void))
+void FileSettings(void(*FileEdition_1)(void),void(*FileEdition_2)(void)) //file edition menu
 {
-   // enum decission {a=1, b=2,c=3} my_decision;
     int my_decission=0;
 
     do
@@ -318,21 +282,17 @@ void FileSettings(void(*FileEdition_1)(void),void(*FileEdition_2)(void))
 
     }
     while(1);
-   // while(my_decission!=1 && my_decission!=2 && my_decission!=3);
 }
 
 
 
 void Estimate (float scores[],uint8_t *amount, void (*FileSettings)(void(*FileEdition_1)(void),void(*FileEdition_2)(void)))
-{
-
+{   //main functon
 
     struct
     {
-
         float val[100];
-        float quant[100]; // add this adjustments to github
-
+        float quant[100];
     }wam;
 
 
@@ -347,7 +307,7 @@ void Estimate (float scores[],uint8_t *amount, void (*FileSettings)(void(*FileEd
     float quantity = 0;
 
 
-    while(number!=4)
+    while(number!=4)    //main menu
     {
 
         do
@@ -372,7 +332,7 @@ void Estimate (float scores[],uint8_t *amount, void (*FileSettings)(void(*FileEd
                 {
 
                     FILE *file;
-                    if((file=fopen(WMA,"r"))==NULL)
+                    if((file=fopen(WMA,"r"))==NULL) //file opening
                     {
                             printf("File not found");
                             exit(EXIT_FAILURE);
@@ -380,20 +340,20 @@ void Estimate (float scores[],uint8_t *amount, void (*FileSettings)(void(*FileEd
 
                     k=0;
                     fseek(file,0,SEEK_SET);
-                    while (fgets(array,100,file)!=NULL)
+                    while (fgets(array,100,file)!=NULL) //extracting data form the file
                     {
 
-                        first_number=strtok(array,"|");
-                        second_number=strtok(NULL,"\n");
+                        first_number=strtok(array,"|");     //searching data until first separator
+                        second_number=strtok(NULL,"\n");    //searching data until second separator
 
-                        wam.val[k] = atof(first_number);
+                        wam.val[k] = atof(first_number);    //changing string into number
                         wam.quant[k] = atof(second_number);
                         k++;
 
                     }
                     fclose(file);
 
-                    for (i=0;i<k;i++)
+                    for (i=0;i<k;i++)                      //calculating
                     {
 
                         outcome +=wam.val[i]*wam.quant[i];
@@ -401,7 +361,7 @@ void Estimate (float scores[],uint8_t *amount, void (*FileSettings)(void(*FileEd
 
                     }
 
-                    outcome =outcome/quantity;
+                    outcome =outcome/quantity;  //final outcome
                     printf ("\nWeighted arithmetic mean equals :%f\n",outcome);
                     scores[*amount]=outcome;
                     *amount+=1;
@@ -412,7 +372,7 @@ void Estimate (float scores[],uint8_t *amount, void (*FileSettings)(void(*FileEd
                 number =0;
                 break;
 
-                case 2:
+                case 2: //same as case 1
                 {
                     FILE *file2;
                     if((file2=fopen(AM,"r"))==NULL)
@@ -445,7 +405,7 @@ void Estimate (float scores[],uint8_t *amount, void (*FileSettings)(void(*FileEd
                 number =0;
                 break;
 
-                case 3:
+                case 3: //same as case 1
                 {
                     FILE *file2;
                     if((file2=fopen(AM,"r"))==NULL)

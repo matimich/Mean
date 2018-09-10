@@ -2,10 +2,9 @@
 #define _ESTIMATION_
 
 
-//void Estimate (float scores[],uint8_t *amount,void (*)(void));
-void Estimate (float scores[],uint8_t *amount, void (*FileSettings)(void(*FileEdition)(void)));
-//void FileOpen(void(*FileEdition)(void(*funtion)(void)));
-void FileSettings(void(*FileEdition)(void));
-void FileEdition_1(void);
-void FileEdition_2(void);
+void Estimate (float scores[],uint8_t *amount, void (*FileSettings)(void(*FileEdition)(void))); //program function
+void FileSettings(void(*FileEdition)(void)); //edit file settings
+void FileEdition_1(void);     // file data edition for arthmetic mean and harmonic mean
+void FileEdition_2(void);    // file data edition for arthmetic mean and harmonic mean weighted arthmetic mean
 #endif
+
