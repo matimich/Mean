@@ -138,7 +138,7 @@ void FileEdition_1(void)    // file data edition for arthmetic mean and harmonic
 
 
 void FileEdition_2(void)    // file data edition for arthmetic mean and harmonic mean weighted arthmetic mean
-{                          // the same working as "FileEdition_2"
+{                          // works the same as "FileEdition_1"
     int decision ;
     char sign ;
     do
@@ -441,11 +441,8 @@ void Estimate (float scores[],uint8_t *amount, void (*FileSettings)(void(*FileEd
                 FileSettings(FileEdition_1,FileEdition_2);
                 number =0;
                 break;
-
         }
-
     }
-
 }
 
 
