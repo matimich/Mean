@@ -12,7 +12,7 @@ int main (void)
 {
 
 
-    float outcomes[100];     //space for outcomes
+    float outcomes[OUTCOMES];     //space for outcomes
     uint8_t amount = 0;      // space for number of outcomes
     uint8_t i;
     Estimate(outcomes,&amount,FileSettings);

@@ -8,24 +8,26 @@ It consists of five files:
 main.c
 Estimation.c
 Estimation.h
-first
-second
+first.thx
+second.txt
 
 To start the program, open "makefile" in console and then start the program.
 
 
 Then you have to input datas to text files:
-"first"
-"second"
+"first.txt"
+"second.txt"
 
 
-File named "first" is prepared for arthmetic mean and harmonic mean.All numbers yow are willing to enter have to be inputed in one column one above the other.You can't input more than 100 different numbers.
+File named "first" is prepared for arthmetic mean and harmonic mean.All numbers yow are willing to enter have to be inputed in one column one above the other.
+File named "second" is prepared for weighted arthmetic mean.In each row u have to input the value and and the quantity.The numbers in each row must be seprated by '|' sign. 
+There are macros in "Estimation.h" file where it is possible to set number of maximum rows in each file (100 by default).
 
-File named "second" is prepared for weighted arthmetic mean.In each row u have to input the value and and the quantity.The numbers in each row must be seprated by '|' sign. You can't create more than 100 rows.
+
 
 If you want to input non integer numbers, than insted of coma ',' use dot '.'.
 
 
-Instead of inputting numbers directly to files "first" and "second", you can also do it in program's menu.
+Instead of inputting numbers directly to files "first.txt" and "second.txt", you can also do it in program's menu.
 
 

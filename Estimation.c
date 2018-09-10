@@ -5,6 +5,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+#include "Estimation.h"
 
 
 #define AM "first.txt"  //file used for arithmetic mean and harmonic mean
@@ -291,8 +292,8 @@ void Estimate (float scores[],uint8_t *amount, void (*FileSettings)(void(*FileEd
 
     struct
     {
-        float val[100];
-        float quant[100];
+        float val[NUMBER_OF_DATA_2];
+        float quant[NUMBER_OF_DATA_2];
     }wam;
 
 
@@ -300,7 +301,7 @@ void Estimate (float scores[],uint8_t *amount, void (*FileSettings)(void(*FileEd
     uint8_t k;
     uint8_t i;
 
-    char array [100];
+    char array [NUMBER_OF_DATA_1];
     char *first_number;
     char *second_number;
     float outcome = 0;
