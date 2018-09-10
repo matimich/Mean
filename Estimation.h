@@ -2,8 +2,8 @@
 #define _ESTIMATION_
 
 #define OUTCOMES 100    //number of OUTCOMES
-#define NUMBER_OF_DATA_1 100    //number of date in first file (number of rows)
-#define NUMBER_OF_DATA_2 100    //number of date in second file (number of rows)
+#define NUMBER_OF_DATA_1 100    //number of data in first file (number of rows)
+#define NUMBER_OF_DATA_2 100    //number of data in second file (number of rows)
 
 
 void Estimate (float scores[],uint8_t *amount, void (*FileSettings)(void(*FileEdition_1)(void),void(*FileEdition_2)(void))); //program function

@@ -257,8 +257,8 @@ void FileSettings(void(*FileEdition_1)(void),void(*FileEdition_2)(void)) //file 
 
     do
     {
-        printf("\nInput '1' to change dates for arthmetic mean and harmonic mean");
-        printf("\nInput '2' to change dates for weighted arthmetic mean");
+        printf("\nInput '1' to change data for arthmetic mean and harmonic mean");
+        printf("\nInput '2' to change data for weighted arthmetic mean");
         printf("\nPress '3' to go back:");
         scanf("%d",&my_decission);
         getc(stdin);
